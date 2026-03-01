@@ -34,7 +34,7 @@ output:
   last_hours_rss: 24
   last_hours_hn: 24
   last_hours_arxiv: 168 # 7 days
-  send_email: false
+  send_email: true
   last_hours_hf: 168   # 7 days
   hf_quota: 3
 
