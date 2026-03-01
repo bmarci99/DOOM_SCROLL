@@ -1,0 +1,459 @@
+[
+  {
+    "id": "hn:47206824",
+    "source": "hn",
+    "title": "AI Made Writing Code Easier. It Made Being an Engineer Harder",
+    "url": "https://www.ivanturkovic.com/2026/02/25/ai-made-writing-code-easier-engineering-harder/",
+    "published": "2026-03-01 14:09:24+00:00",
+    "authors": [
+      "saikatsg"
+    ],
+    "summary": null,
+    "tags": [
+      "hackernews"
+    ],
+    "score": 0.48192075731173406,
+    "hn_id": null,
+    "hn_points": 294,
+    "hn_comments": 204,
+    "hn_activity": 702.0
+  },
+  {
+    "id": "hn:47202708",
+    "source": "hn",
+    "title": "Microgpt",
+    "url": "http://karpathy.github.io/2026/02/12/microgpt/",
+    "published": "2026-03-01 01:39:26+00:00",
+    "authors": [
+      "tambourine_man"
+    ],
+    "summary": null,
+    "tags": [
+      "hackernews"
+    ],
+    "score": 0.43476909189819457,
+    "hn_id": null,
+    "hn_points": 1351,
+    "hn_comments": 244,
+    "hn_activity": 1839.0
+  },
+  {
+    "id": "hn:47205890",
+    "source": "hn",
+    "title": "I built a demo of what AI chat will look like when it's \"free\" and ad-supported",
+    "url": "https://99helpers.com/tools/ad-supported-chat",
+    "published": "2026-03-01 11:49:01+00:00",
+    "authors": [
+      "nickk81"
+    ],
+    "summary": null,
+    "tags": [
+      "hackernews"
+    ],
+    "score": 0.4291534395904087,
+    "hn_id": null,
+    "hn_points": 261,
+    "hn_comments": 179,
+    "hn_activity": 619.0
+  },
+  {
+    "id": "hn:47206009",
+    "source": "hn",
+    "title": "Ghostty – Terminal Emulator",
+    "url": "https://ghostty.org/docs",
+    "published": "2026-03-01 12:13:03+00:00",
+    "authors": [
+      "oli5679"
+    ],
+    "summary": null,
+    "tags": [
+      "hackernews"
+    ],
+    "score": 0.4198983072884813,
+    "hn_id": null,
+    "hn_points": 245,
+    "hn_comments": 112,
+    "hn_activity": 469.0
+  },
+  {
+    "id": "hn:47206798",
+    "source": "hn",
+    "title": "Ape Coding",
+    "url": "https://rsaksida.com/blog/ape-coding/",
+    "published": "2026-03-01 14:07:05+00:00",
+    "authors": [
+      "rmsaksida"
+    ],
+    "summary": null,
+    "tags": [
+      "hackernews"
+    ],
+    "score": 0.4164779369310342,
+    "hn_id": null,
+    "hn_points": 105,
+    "hn_comments": 52,
+    "hn_activity": 209.0
+  },
+  {
+    "id": "arxiv:2602.23360v1",
+    "source": "arxiv",
+    "title": "Model Agreement via Anchoring",
+    "url": "http://arxiv.org/abs/2602.23360v1",
+    "published": "2026-02-26 18:59:32+00:00",
+    "authors": [
+      "Eric Eaton",
+      "Surbhi Goel",
+      "Marcel Hussing",
+      "Michael Kearns",
+      "Aaron Roth",
+      "Sikata Bela Sengupta",
+      "Jessica Sorrell"
+    ],
+    "summary": "Numerous lines of aim to control $\\textit{model disagreement}$ -- the extent to which two machine learning models disagree in their predictions. We adopt a simple and standard notion of model disagreement in real-valued prediction problems, namely the expected squared difference in predictions between two models trained on independent samples, without any coordination of the training processes. We would like to be able to drive disagreement to zero with some natural parameter(s) of the training procedure using analyses that can be applied to existing training methodologies.\n  We develop a simple general technique for proving bounds on independent model disagreement based on $\\textit{anchoring}$ to the average of two models within the analysis. We then apply this technique to prove disagreement bounds for four commonly used machine learning algorithms: (1) stacked aggregation over an arbitrary model class (where disagreement is driven to 0 with the number of models $k$ being stacked) (2) gradient boosting (where disagreement is driven to 0 with the number of iterations $k$) (3) neural network training with architecture search (where disagreement is driven to 0 with the size $n$ of the architecture being optimized over) and (4) regression tree training over all regression trees of fixed depth (where disagreement is driven to 0 with the depth $d$ of the tree architecture). For clarity, we work out our initial bounds in the setting of one-dimensional regression with squared error loss -- but then show that all of our results generalize to multi-dimensional regression with any strongly convex loss.",
+    "tags": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "score": 0.00821751591406896,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "arxiv:2602.23359v1",
+    "source": "arxiv",
+    "title": "SeeThrough3D: Occlusion Aware 3D Control in Text-to-Image Generation",
+    "url": "http://arxiv.org/abs/2602.23359v1",
+    "published": "2026-02-26 18:59:05+00:00",
+    "authors": [
+      "Vaibhav Agrawal",
+      "Rishubh Parihar",
+      "Pradhaan Bhat",
+      "Ravi Kiran Sarvadevabhatla",
+      "R. Venkatesh Babu"
+    ],
+    "summary": "We identify occlusion reasoning as a fundamental yet overlooked aspect for 3D layout-conditioned generation. It is essential for synthesizing partially occluded objects with depth-consistent geometry and scale. While existing methods can generate realistic scenes that follow input layouts, they often fail to model precise inter-object occlusions. We propose SeeThrough3D, a model for 3D layout conditioned generation that explicitly models occlusions. We introduce an occlusion-aware 3D scene representation (OSCR), where objects are depicted as translucent 3D boxes placed within a virtual environment and rendered from desired camera viewpoint. The transparency encodes hidden object regions, enabling the model to reason about occlusions, while the rendered viewpoint provides explicit camera control during generation. We condition a pretrained flow based text-to-image image generation model by introducing a set of visual tokens derived from our rendered 3D representation. Furthermore, we apply masked self-attention to accurately bind each object bounding box to its corresponding textual description, enabling accurate generation of multiple objects without object attribute mixing. To train the model, we construct a synthetic dataset with diverse multi-object scenes with strong inter-object occlusions. SeeThrough3D generalizes effectively to unseen object categories and enables precise 3D layout control with realistic occlusions and consistent camera control.",
+    "tags": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "score": 0.008216655031486952,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "arxiv:2602.23353v1",
+    "source": "arxiv",
+    "title": "SOTAlign: Semi-Supervised Alignment of Unimodal Vision and Language Models via Optimal Transport",
+    "url": "http://arxiv.org/abs/2602.23353v1",
+    "published": "2026-02-26 18:55:06+00:00",
+    "authors": [
+      "Simon Roschmann",
+      "Paul Krzakala",
+      "Sonia Mazelet",
+      "Quentin Bouniot",
+      "Zeynep Akata"
+    ],
+    "summary": "The Platonic Representation Hypothesis posits that neural networks trained on different modalities converge toward a shared statistical model of the world. Recent work exploits this convergence by aligning frozen pretrained vision and language models with lightweight alignment layers, but typically relies on contrastive losses and millions of paired samples. In this work, we ask whether meaningful alignment can be achieved with substantially less supervision. We introduce a semi-supervised setting in which pretrained unimodal encoders are aligned using a small number of image-text pairs together with large amounts of unpaired data. To address this challenge, we propose SOTAlign, a two-stage framework that first recovers a coarse shared geometry from limited paired data using a linear teacher, then refines the alignment on unpaired samples via an optimal-transport-based divergence that transfers relational structure without overconstraining the target space. Unlike existing semi-supervised methods, SOTAlign effectively leverages unpaired images and text, learning robust joint embeddings across datasets and encoder pairs, and significantly outperforming supervised and semi-supervised baselines.",
+    "tags": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "score": 0.008209042484132746,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "arxiv:2602.23349v1",
+    "source": "arxiv",
+    "title": "FlashOptim: Optimizers for Memory Efficient Training",
+    "url": "http://arxiv.org/abs/2602.23349v1",
+    "published": "2026-02-26 18:52:22+00:00",
+    "authors": [
+      "Jose Javier Gonzalez Ortiz",
+      "Abhay Gupta",
+      "Chris Renard",
+      "Davis Blalock"
+    ],
+    "summary": "Standard mixed-precision training of neural networks requires many bytes of accelerator memory for each model parameter. These bytes reflect not just the parameter itself, but also its gradient and one or more optimizer state variables. With each of these values typically requiring 4 bytes, training even a 7 billion parameter model can be impractical for researchers with less than 100GB of accelerator memory.\n  We introduce FlashOptim, a suite of optimizations that reduces per-parameter memory by over 50% while preserving model quality and API compatibility. Our approach introduces two key techniques. First, we improve master weight splitting by finding and exploiting a tight bound on its quantization error. Second, we design companding functions that greatly reduce the error in 8-bit optimizer state quantization. Together with 16-bit gradients, these techniques reduce AdamW memory from 16 bytes to 7 bytes per parameter, or 5 bytes with gradient release. They also cut model checkpoint sizes by more than half.\n  Experiments with FlashOptim applied to SGD, AdamW, and Lion show no measurable quality degradation on any task from a collection of standard vision and language benchmarks, including Llama-3.1-8B finetuning.",
+    "tags": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "score": 0.00820382696681071,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "arxiv:2602.23341v1",
+    "source": "arxiv",
+    "title": "Mean Estimation from Coarse Data: Characterizations and Efficient Algorithms",
+    "url": "http://arxiv.org/abs/2602.23341v1",
+    "published": "2026-02-26 18:47:06+00:00",
+    "authors": [
+      "Alkis Kalavasis",
+      "Anay Mehrotra",
+      "Manolis Zampetakis",
+      "Felix Zhou",
+      "Ziyu Zhu"
+    ],
+    "summary": "Coarse data arise when learners observe only partial information about samples; namely, a set containing the sample rather than its exact value. This occurs naturally through measurement rounding, sensor limitations, and lag in economic systems. We study Gaussian mean estimation from coarse data, where each true sample $x$ is drawn from a $d$-dimensional Gaussian distribution with identity covariance, but is revealed only through the set of a partition containing $x$. When the coarse samples, roughly speaking, have ``low'' information, the mean cannot be uniquely recovered from observed samples (i.e., the problem is not identifiable). Recent work by Fotakis, Kalavasis, Kontonis, and Tzamos [FKKT21] established that sample-efficient mean estimation is possible when the unknown mean is identifiable and the partition consists of only convex sets. Moreover, they showed that without convexity, mean estimation becomes NP-hard. However, two fundamental questions remained open: (1) When is the mean identifiable under convex partitions? (2) Is computationally efficient estimation possible under identifiability and convex partitions? This work resolves both questions. [...]",
+    "tags": [
+      "cs.LG",
+      "cs.DS",
+      "math.ST",
+      "stat.ML"
+    ],
+    "score": 0.008193796219679547,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "arxiv:2602.23336v1",
+    "source": "arxiv",
+    "title": "Differentiable Zero-One Loss via Hypersimplex Projections",
+    "url": "http://arxiv.org/abs/2602.23336v1",
+    "published": "2026-02-26 18:41:31+00:00",
+    "authors": [
+      "Camilo Gomez",
+      "Pengyang Wang",
+      "Liansheng Tang"
+    ],
+    "summary": "Recent advances in machine learning have emphasized the integration of structured optimization components into end-to-end differentiable models, enabling richer inductive biases and tighter alignment with task-specific objectives. In this work, we introduce a novel differentiable approximation to the zero-one loss-long considered the gold standard for classification performance, yet incompatible with gradient-based optimization due to its non-differentiability. Our method constructs a smooth, order-preserving projection onto the n,k-dimensional hypersimplex through a constrained optimization framework, leading to a new operator we term Soft-Binary-Argmax. After deriving its mathematical properties, we show how its Jacobian can be efficiently computed and integrated into binary and multiclass learning systems. Empirically, our approach achieves significant improvements in generalization under large-batch training by imposing geometric consistency constraints on the output logits, thereby narrowing the performance gap traditionally observed in large-batch training.",
+    "tags": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "score": 0.008183189108950897,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "arxiv:2602.23335v1",
+    "source": "arxiv",
+    "title": "Understanding Usage and Engagement in AI-Powered Scientific Research Tools: The Asta Interaction Dataset",
+    "url": "http://arxiv.org/abs/2602.23335v1",
+    "published": "2026-02-26 18:40:28+00:00",
+    "authors": [
+      "Dany Haddad",
+      "Dan Bareket",
+      "Joseph Chee Chang",
+      "Jay DeYoung",
+      "Jena D. Hwang",
+      "Uri Katz",
+      "Mark Polak",
+      "Sangho Suh",
+      "Harshit Surana",
+      "Aryeh Tiktinsky",
+      "Shriya Atmakuri",
+      "Jonathan Bragg",
+      "Mike D'Arcy",
+      "Sergey Feldman",
+      "Amal Hassan-Ali",
+      "Rubén Lozano",
+      "Bodhisattwa Prasad Majumder",
+      "Charles McGrady",
+      "Amanpreet Singh",
+      "Brooke Vlahos",
+      "Yoav Goldberg",
+      "Doug Downey"
+    ],
+    "summary": "AI-powered scientific research tools are rapidly being integrated into research workflows, yet the field lacks a clear lens into how researchers use these systems in real-world settings. We present and analyze the Asta Interaction Dataset, a large-scale resource comprising over 200,000 user queries and interaction logs from two deployed tools (a literature discovery interface and a scientific question-answering interface) within an LLM-powered retrieval-augmented generation platform. Using this dataset, we characterize query patterns, engagement behaviors, and how usage evolves with experience. We find that users submit longer and more complex queries than in traditional search, and treat the system as a collaborative research partner, delegating tasks such as drafting content and identifying research gaps. Users treat generated responses as persistent artifacts, revisiting and navigating among outputs and cited evidence in non-linear ways. With experience, users issue more targeted queries and engage more deeply with supporting citations, although keyword-style queries persist even among experienced users. We release the anonymized dataset and analysis with a new query intent taxonomy to inform future designs of real-world AI research assistants and to support realistic evaluation.",
+    "tags": [
+      "cs.HC",
+      "cs.AI",
+      "cs.IR"
+    ],
+    "score": 0.00818119740603997,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "arxiv:2602.23334v1",
+    "source": "arxiv",
+    "title": "Bitwise Systolic Array Architecture for Runtime-Reconfigurable Multi-precision Quantized Multiplication on Hardware Accelerators",
+    "url": "http://arxiv.org/abs/2602.23334v1",
+    "published": "2026-02-26 18:40:02+00:00",
+    "authors": [
+      "Yuhao Liu",
+      "Salim Ullah",
+      "Akash Kumar"
+    ],
+    "summary": "Neural network accelerators have been widely applied to edge devices for complex tasks like object tracking, image recognition, etc. Previous works have explored the quantization technologies in related lightweight accelerator designs to reduce hardware resource consumption. However, low precision leads to high accuracy loss in inference. Therefore, mixed-precision quantization becomes an alternative solution by applying different precision in different layers to trade off resource consumption and accuracy. Because regular designs for multiplication on hardware cannot support the precision reconfiguration for a multi-precision Quantized Neural Network (QNN) model in runtime, we propose a runtime reconfigurable multi-precision multi-channel bitwise systolic array design for QNN accelerators. We have implemented and evaluated our work on the Ultra96 FPGA platform. Results show that our work can achieve 1.3185 to 3.5671 times speedup in inferring mixed-precision models and has less critical path delay, supporting a higher clock frequency (250MHz).",
+    "tags": [
+      "cs.AR",
+      "cs.AI"
+    ],
+    "score": 0.008180375716005514,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "arxiv:2602.23331v1",
+    "source": "arxiv",
+    "title": "Utilizing LLMs for Industrial Process Automation",
+    "url": "http://arxiv.org/abs/2602.23331v1",
+    "published": "2026-02-26 18:38:00+00:00",
+    "authors": [
+      "Salim Fares"
+    ],
+    "summary": "A growing number of publications address the best practices to use Large Language Models (LLMs) for software engineering in recent years. However, most of this work focuses on widely-used general purpose programming languages like Python due to their widespread usage training data. The utility of LLMs for software within the industrial process automation domain, with highly-specialized languages that are typically only used in proprietary contexts, remains underexplored. This research aims to utilize and integrate LLMs in the industrial development process, solving real-life programming tasks (e.g., generating a movement routine for a robotic arm) and accelerating the development cycles of manufacturing systems.",
+    "tags": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "score": 0.008176522296814615,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "arxiv:2602.23330v1",
+    "source": "arxiv",
+    "title": "Toward Expert Investment Teams:A Multi-Agent LLM System with Fine-Grained Trading Tasks",
+    "url": "http://arxiv.org/abs/2602.23330v1",
+    "published": "2026-02-26 18:37:36+00:00",
+    "authors": [
+      "Kunihiro Miyazaki",
+      "Takanobu Kawahara",
+      "Stephen Roberts",
+      "Stefan Zohren"
+    ],
+    "summary": "The advancement of large language models (LLMs) has accelerated the development of autonomous financial trading systems. While mainstream approaches deploy multi-agent systems mimicking analyst and manager roles, they often rely on abstract instructions that overlook the intricacies of real-world workflows, which can lead to degraded inference performance and less transparent decision-making. Therefore, we propose a multi-agent LLM trading framework that explicitly decomposes investment analysis into fine-grained tasks, rather than providing coarse-grained instructions. We evaluate the proposed framework using Japanese stock data, including prices, financial statements, news, and macro information, under a leakage-controlled backtesting setting. Experimental results show that fine-grained task decomposition significantly improves risk-adjusted returns compared to conventional coarse-grained designs. Crucially, further analysis of intermediate agent outputs suggests that alignment between analytical outputs and downstream decision preferences is a critical driver of system performance. Moreover, we conduct standard portfolio optimization, exploiting low correlation with the stock index and the variance of each system's output. This approach achieves superior performance. These findings contribute to the design of agent structure and task configuration when applying LLM agents to trading systems in practical settings.",
+    "tags": [
+      "cs.AI",
+      "q-fin.TR"
+    ],
+    "score": 0.00817576467442843,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "rss:https://medium.com/p/29a476801d00",
+    "source": "rss",
+    "title": "VL-JEPA: A New Direction in Vision-Language Learning",
+    "url": "https://medium.com/@visnus12a22223/vl-jepa-a-new-direction-in-vision-language-learning-29a476801d00?source=rss------ai-5",
+    "published": "2026-03-01 17:30:22+00:00",
+    "authors": [
+      "Visnu"
+    ],
+    "summary": "<div class=\"medium-feed-item\"><p class=\"medium-feed-snippet\">The AI world is moving beyond models that simply predict the next word.</p><p class=\"medium-feed-link\"><a href=\"https://medium.com/@visnus12a22223/vl-jepa-a-new-direction-in-vision-language-learning-29a476801d00?source=rss------ai-5\">Continue reading on Medium »</a></p></div>",
+    "tags": [
+      "ai",
+      "llm",
+      "deep-learning",
+      "machine-learning",
+      "ai-research"
+    ],
+    "score": 0.55,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "rss:https://medium.com/p/0701af881148",
+    "source": "rss",
+    "title": "This Newly Released Anthropic Agentic Coding Trends Report (Is a Must-Read)",
+    "url": "https://medium.com/@joe.njenga/this-newly-released-anthropic-agentic-coding-trends-report-is-a-must-read-0701af881148?source=rss------ai_agent-5",
+    "published": "2026-03-01 17:28:59+00:00",
+    "authors": [
+      "Joe Njenga"
+    ],
+    "summary": "<div class=\"medium-feed-item\"><p class=\"medium-feed-image\"><a href=\"https://medium.com/@joe.njenga/this-newly-released-anthropic-agentic-coding-trends-report-is-a-must-read-0701af881148?source=rss------ai_agent-5\"><img src=\"https://cdn-images-1.medium.com/max/866/1*tl9L-_ErJGBDwJez7ef55g.png\" width=\"866\" /></a></p><p class=\"medium-feed-snippet\">Anthropic quietly released an 8-point AI coding trends report for 2026 that should reset your priorities if you are serious about agentic&#x2026;</p><p class=\"medium-feed-link\"><a href=\"https://medium.com/@joe.njenga/this-newly-released-anthropic-agentic-coding-trends-report-is-a-must-read-0701af881148?source=rss------ai_agent-5\">Continue reading on Medium »</a></p></div>",
+    "tags": [
+      "agentic-workflow",
+      "agentic-rag",
+      "anthropic-claude",
+      "agentic-ai",
+      "ai-agent"
+    ],
+    "score": 0.5383939221462346,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "rss:https://medium.com/p/5004e364558f",
+    "source": "rss",
+    "title": "AI; Power and Politics",
+    "url": "https://medium.com/illumination/ai-power-and-politics-5004e364558f?source=rss------ai-5",
+    "published": "2026-03-01 17:28:31+00:00",
+    "authors": [
+      "Chisom Ruby"
+    ],
+    "summary": "<div class=\"medium-feed-item\"><p class=\"medium-feed-image\"><a href=\"https://medium.com/illumination/ai-power-and-politics-5004e364558f?source=rss------ai-5\"><img src=\"https://cdn-images-1.medium.com/max/736/1*ktK0Fk1Acp3dDwSpVH3lww.jpeg\" width=\"736\" /></a></p><p class=\"medium-feed-snippet\">Who should be in control?</p><p class=\"medium-feed-link\"><a href=\"https://medium.com/illumination/ai-power-and-politics-5004e364558f?source=rss------ai-5\">Continue reading on ILLUMINATION »</a></p></div>",
+    "tags": [
+      "news",
+      "ai",
+      "government",
+      "politics",
+      "trending"
+    ],
+    "score": 0.5345883303414937,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "rss:https://medium.com/p/2a3fbc9fdad8",
+    "source": "rss",
+    "title": "How to Make Money with AI in 2026: From Prompts to Profits",
+    "url": "https://medium.com/@info.bilalahmedkhan/how-to-make-money-with-ai-in-2026-from-prompts-to-profits-2a3fbc9fdad8?source=rss------ai_agent-5",
+    "published": "2026-03-01 17:26:01+00:00",
+    "authors": [
+      "Info Bilalahmedkhan"
+    ],
+    "summary": "<div class=\"medium-feed-item\"><p class=\"medium-feed-snippet\">The &#x201c;Gold Rush&#x201d; of 2023 is officially over. If you are still trying to make money by just asking ChatGPT to &#x201c;write a blog post,&#x201d; you are&#x2026;</p><p class=\"medium-feed-link\"><a href=\"https://medium.com/@info.bilalahmedkhan/how-to-make-money-with-ai-in-2026-from-prompts-to-profits-2a3fbc9fdad8?source=rss------ai_agent-5\">Continue reading on Medium »</a></p></div>",
+    "tags": [
+      "ai-agent",
+      "generative-ai-tools",
+      "earn-money-online",
+      "make-money-online"
+    ],
+    "score": 0.5150839005581588,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  },
+  {
+    "id": "rss:https://medium.com/p/9e69c044783b",
+    "source": "rss",
+    "title": "Is AI bad for brain development?",
+    "url": "https://medium.com/@saikumar1508/is-ai-bad-for-brain-development-9e69c044783b?source=rss------ai-5",
+    "published": "2026-03-01 17:25:50+00:00",
+    "authors": [
+      "Saikumar"
+    ],
+    "summary": "<div class=\"medium-feed-item\"><p class=\"medium-feed-image\"><a href=\"https://medium.com/@saikumar1508/is-ai-bad-for-brain-development-9e69c044783b?source=rss------ai-5\"><img src=\"https://cdn-images-1.medium.com/max/626/0*eKTJqEmcsUKHqlhT.jpg\" width=\"626\" /></a></p><p class=\"medium-feed-snippet\">Use the tool &#x2014; but don&#x2019;t let it think instead of you</p><p class=\"medium-feed-link\"><a href=\"https://medium.com/@saikumar1508/is-ai-bad-for-brain-development-9e69c044783b?source=rss------ai-5\">Continue reading on Medium »</a></p></div>",
+    "tags": [
+      "ai"
+    ],
+    "score": 0.5137094385015357,
+    "hn_id": null,
+    "hn_points": 0,
+    "hn_comments": 0,
+    "hn_activity": 0.0
+  }
+]

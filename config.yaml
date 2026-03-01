@@ -1,0 +1,46 @@
+arxiv:
+  queries:
+    - "cat:cs.RO" # robotics
+    - "cat:cs.AI" # AI
+    - "cat:cs.MA" # Multiagent systems
+    - "cat:cs.SI" # social networks
+    - "cat:stat.ML" # Machine learning
+  max_results_per_query: 20
+  sort_by: "submittedDate"   # submittedDate | lastUpdatedDate | relevance
+  sort_order: "descending"   # ascending | descending
+
+rss:
+  feeds:
+    - "https://medium.com/feed/tag/machine-learning"
+    - "https://medium.com/feed/tag/ai"
+    - "https://medium.com/feed/tag/artificial-intelligence"
+    - "https://medium.com/feed/tag/llm"
+    - "https://medium.com/feed/tag/ai-agent"
+    - "https://medium.com/feed/tag/data-science"
+    - "https://medium.com/feed/tag/large-language-models"
+
+hackernews:
+  enabled: true
+  latest_n: 20
+  best_n: 20
+
+output:
+  digest_md: "outputs/digest.md"
+  digest_json: "outputs/digest.json"
+  arxiv_quota: 10
+  top_k: 20
+  hn_quota: 5
+  #last_hours: 24
+  last_hours_rss: 24
+  last_hours_hn: 24
+  last_hours_arxiv: 72
+  send_email: true
+
+quality:
+  hn_min_points: 30
+  hn_min_comments: 10
+
+  rss_require_hn: false
+  rss_hn_min_points: 10
+  rss_hn_min_comments: 0
+
