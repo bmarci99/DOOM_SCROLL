@@ -4,13 +4,21 @@ version = "0.1.0"
 description = "Open sourcing the initial part"
 readme = "README.md"
 requires-python = ">=3.10.13"
+
 dependencies = [
     "arxiv>=2.4.0",
     "beautifulsoup4>=4.14.3",
     "feedparser>=6.0.12",
     "pydantic>=2.12.5",
     "python-dateutil>=2.9.0.post0",
-    "pyyaml>=6.0.3",
     "readability-lxml>=0.8.4.1",
     "requests>=2.32.5",
+    "openai==1.101.0",
+    "pymupdf==1.26.4",
+    "pypdf2==3.0.1",
+    "python-dotenv==1.1.0",
+    "tiktoken==0.11.0",
+    "pyyaml==6.0.2",
 ]
+[project.optional-dependencies]
+dev = ["ruff", "pytest"]

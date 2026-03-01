@@ -162,9 +162,13 @@ def run(config_path: str = "config.yaml", keywords: List[str] | None = None) -> 
     print(f"Wrote {out_cfg.get('digest_md', 'digest.md')} and {json_path} ({len(items_top)} items).")
 
     if out_cfg.get("send_email", False):
+        to_email = os.getenv("DIGEST_TO_EMAIL")
+        from_email = os.getenv("GMAIL_ADDRESS")
+        app_password = os.getenv("GMAIL_APP_PASSWORD")
+        if not (to_email and from_email and app_password):
+            raise RuntimeError("Email enabled but DIGEST_TO_EMAIL/GMAIL_ADDRESS/GMAIL_APP_PASSWORD not set.")
         body = Path(out_cfg.get("digest_md")).read_text(encoding="utf-8")
-        send_email(subject="Daily AI Digest", body=body, to_email=os.environ["DIGEST_TO_EMAIL"], from_email=os.environ["GMAIL_ADDRESS"], app_password=os.environ["GMAIL_APP_PASSWORD"])
-
+        send_email(subject="Daily AI Digest", body=body, to_email=to_email, from_email=from_email, app_password=app_password)
 
 if __name__ == "__main__":
     run()

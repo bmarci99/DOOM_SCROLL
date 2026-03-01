@@ -2,12 +2,15 @@ name: Daily Digest
 
 on:
   schedule:
-    # Runs at 07:00 UTC every day (08:00 Berlin in winter, 09:00 in summer)
     - cron: "0 7 * * *"
   workflow_dispatch: {}
 
 permissions:
   contents: write
+
+concurrency:
+  group: daily-digest
+  cancel-in-progress: true
 
 jobs:
   run-digest:
@@ -16,31 +19,40 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.10.13"
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install dependencies (locked)
+        run: uv sync --frozen
 
       - name: Run digest
         env:
-          # Email creds (set in GitHub repo Settings → Secrets and variables → Actions)
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           DIGEST_TO_EMAIL: ${{ secrets.DIGEST_TO_EMAIL }}
         run: |
-          python main.py
+          uv run python -m doom_scroll.main
 
-      # Optional: commit outputs back to the repo so you can browse history in GitHub
-      - name: Commit outputs
+      - name: Commit digest outputs
         run: |
           git config user.name "digest-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add outputs/digest.md outputs/digest.json || true
-          git commit -m "Update digest" || exit 0
+
+          # Adjust these to your config.yaml paths:
+          git add digest.md digest.json outputs/ || true
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update digest [skip ci]"
           git push
