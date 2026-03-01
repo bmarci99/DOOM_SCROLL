@@ -6,7 +6,12 @@ import arxiv
 
 from ..models import Item
 
-def fetch_arxiv_items(queries: List[str], max_results_per_query: int, sort_by: str, sort_order: str) -> List[Item]:
+def fetch_arxiv_items(
+    queries: List[str],
+    max_results_per_query: int,
+    sort_by: str,
+    sort_order: str
+) -> List[Item]:
     sort_by_map = {
         "relevance": arxiv.SortCriterion.Relevance,
         "lastUpdatedDate": arxiv.SortCriterion.LastUpdatedDate,
@@ -18,6 +23,7 @@ def fetch_arxiv_items(queries: List[str], max_results_per_query: int, sort_by: s
     }
 
     items: List[Item] = []
+
     for q in queries:
         search = arxiv.Search(
             query=q,
@@ -25,10 +31,14 @@ def fetch_arxiv_items(queries: List[str], max_results_per_query: int, sort_by: s
             sort_by=sort_by_map.get(sort_by, arxiv.SortCriterion.SubmittedDate),
             sort_order=sort_order_map.get(sort_order, arxiv.SortOrder.Descending),
         )
+
         for r in search.results():
-            published = r.published
-            if published.tzinfo is None:
-                published = published.replace(tzinfo=timezone.utc)
+            # Prefer "updated" for freshness filtering; fallback to published
+            dt = getattr(r, "updated", None) or r.published
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            else:
+                dt = dt.astimezone(timezone.utc)
 
             items.append(
                 Item(
@@ -36,10 +46,11 @@ def fetch_arxiv_items(queries: List[str], max_results_per_query: int, sort_by: s
                     source="arxiv",
                     title=r.title.strip().replace("\n", " "),
                     url=str(r.entry_id),
-                    published=published,
-                    authors=[a.name for a in r.authors],
+                    published=dt,
+                    authors=[a.name for a in (r.authors or [])],
                     summary=(r.summary or "").strip(),
-                    tags=[c for c in (r.categories or [])],
+                    tags=list(r.categories or []),
                 )
             )
+
     return items

@@ -33,8 +33,10 @@ output:
   #last_hours: 24
   last_hours_rss: 24
   last_hours_hn: 24
-  last_hours_arxiv: 72
-  send_email: true
+  last_hours_arxiv: 168 # 7 days
+  send_email: false
+  last_hours_hf: 168   # 7 days
+  hf_quota: 3
 
 quality:
   hn_min_points: 30

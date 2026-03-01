@@ -1,8 +1,13 @@
 
-# 🛰️ Doomscrolling 2.0
+# 📡 Doomscrolling 2.0
 
 > Daily high-signal intelligence for RL, AI agents, and ML systems.
-> Fully automated. Zero LLMs. Pure signal.
+> Fully automated. Zero LLMs.
+
+---
+<p align="center">
+  <img src="misc/conan_books.gif" width="200" />
+</p>
 
 ---
 
@@ -15,7 +20,7 @@
 
 ## ⚡ What It Does
 
-AI Research Radar runs daily and:
+Doomscrolling 2.0 runs daily and:
 
 * 📡 Pulls new arXiv papers (cs.LG, cs.AI, cs.MA, stat.ML…)
 * 🔥 Tracks high-activity Hacker News posts

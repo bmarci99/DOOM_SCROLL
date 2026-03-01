@@ -5,7 +5,7 @@ from typing import Literal, Optional, List
 from datetime import datetime
 
 
-Source = Literal["arxiv", "rss", "hn"]
+Source = Literal["arxiv", "rss", "hn", "hf"]
 
 
 
