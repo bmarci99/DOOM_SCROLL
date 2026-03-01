@@ -39,7 +39,7 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           DIGEST_TO_EMAIL: ${{ secrets.DIGEST_TO_EMAIL }}
         run: |
-          uv run python -m doom_scroll.main
+          uv run python main.py
 
       - name: Commit digest outputs
         run: |
