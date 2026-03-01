@@ -152,12 +152,13 @@ def run(config_path: str = "config.yaml", keywords: List[str] | None = None) -> 
     print(f"Top {len(items_top)} breakdown -> arXiv: {top_arxiv}, RSS: {top_rss}, HN: {top_hn}")
 
     md = render_markdown(items_top)
-    Path(out_cfg.get("digest_md", "digest.md")).write_text(md, encoding="utf-8")
+    md_path = Path(out_cfg.get("digest_md", "digest.md"))
+    md_path.parent.mkdir(parents=True, exist_ok=True)
+    md_path.write_text(md, encoding="utf-8")
 
-    # JSON output for future UI / LLM step
-    json_path = out_cfg.get("digest_json", "digest.json")
-    Path(json_path).write_text( json.dumps([it.model_dump() for it in items_top], ensure_ascii=False, indent=2, default=str), encoding="utf-8")
-
+    json_path = Path(out_cfg.get("digest_json", "digest.json"))
+    json_path.parent.mkdir(parents=True, exist_ok=True)
+    json_path.write_text(json.dumps([it.model_dump() for it in items_top], ensure_ascii=False, indent=2, default=str), encoding="utf-8")
 
     print(f"Wrote {out_cfg.get('digest_md', 'digest.md')} and {json_path} ({len(items_top)} items).")
 
