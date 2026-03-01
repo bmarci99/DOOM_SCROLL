@@ -45,14 +45,13 @@ jobs:
         run: |
           git config user.name "digest-bot"
           git config user.email "actions@users.noreply.github.com"
-
-          # Adjust these to your config.yaml paths:
-          git add digest.md digest.json outputs/ || true
-
+      
+          git add outputs/ || true
+      
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
-
+      
           git commit -m "Update digest [skip ci]"
           git push
