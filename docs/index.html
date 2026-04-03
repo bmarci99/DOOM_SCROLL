@@ -3,47 +3,1018 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily AI Digest — Archive</title>
-<link rel="alternate" type="application/rss+xml" title="Daily AI Digest" href="feed.xml">
+<title>DOOM_SCROLL | AI and ML Signal Desk</title>
+<meta name="description" content="DOOM_SCROLL is a zero-cost daily AI and machine learning intelligence desk built on GitHub Actions and GitHub Pages.">
+<link rel="alternate" type="application/rss+xml" title="DOOM_SCROLL Feed" href="feed.xml">
 <style>
-  :root { --bg: #f8fafc; --card: #ffffff; --text: #1a1a2e; --muted: #64748b; --accent: #6366f1; --border: #e2e8f0; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #0f172a; --card: #1e293b; --text: #e2e8f0; --muted: #94a3b8; --accent: #818cf8; --border: #334155; } }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-  .container { max-width: 720px; margin: 0 auto; padding: 24px 16px; }
-  header { text-align: center; padding: 48px 0 32px; }
-  header h1 { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
-  header p { color: var(--muted); font-size: 14px; margin-top: 8px; }
-  .rss-link { display: inline-block; margin-top: 12px; font-size: 13px; color: var(--accent); text-decoration: none; }
-  .digest-list { list-style: none; }
-  .digest-entry { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 12px; }
-  .digest-entry a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 16px; }
-  .digest-entry a:hover { text-decoration: underline; }
-  .digest-entry .meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
-  footer { text-align: center; padding: 32px 0; color: var(--muted); font-size: 12px; }
-  footer a { color: var(--accent); text-decoration: none; }
+  :root {
+    --bg: #f5efe6;
+    --paper: rgba(255, 251, 244, 0.92);
+    --surface: #fffaf1;
+    --surface-strong: #fffdf8;
+    --ink: #1f2b27;
+    --muted: #5f6b65;
+    --line: rgba(118, 103, 80, 0.18);
+    --accent: #0f766e;
+    --accent-soft: rgba(15, 118, 110, 0.12);
+    --accent-warm: #c7683c;
+    --accent-warm-soft: rgba(199, 104, 60, 0.12);
+    --shadow: 0 24px 70px rgba(63, 45, 24, 0.12);
+    --radius-xl: 28px;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(15, 118, 110, 0.16), transparent 32%),
+      radial-gradient(circle at 85% 18%, rgba(199, 104, 60, 0.12), transparent 24%),
+      linear-gradient(180deg, #f8f4ec 0%, #f3ecdf 100%);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(rgba(77, 62, 43, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(77, 62, 43, 0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.26), transparent 82%);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding-bottom: 80px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 16px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 18px;
+    margin-top: 16px;
+    background: rgba(255, 251, 244, 0.78);
+    border: 1px solid rgba(118, 103, 80, 0.16);
+    border-radius: 999px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 18px 40px rgba(63, 45, 24, 0.08);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #0f766e, #1d9389);
+    color: #f9fffd;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-copy {
+    display: grid;
+    gap: 2px;
+  }
+
+  .brand-copy strong {
+    font-size: 14px;
+    letter-spacing: 0.14em;
+  }
+
+  .brand-copy span {
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .nav-links,
+  .nav-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .nav-links a:hover {
+    color: var(--ink);
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(118, 103, 80, 0.16);
+    font-size: 13px;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 34px rgba(63, 45, 24, 0.1);
+  }
+
+  .button-primary {
+    background: linear-gradient(135deg, #0f766e, #16948a);
+    color: #f9fffd;
+    border-color: transparent;
+  }
+
+  .button-secondary {
+    background: rgba(255, 250, 241, 0.84);
+  }
+
+  .button-tertiary {
+    background: transparent;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    gap: 24px;
+    align-items: stretch;
+    padding: 34px 0 28px;
+  }
+
+  .hero-copy,
+  .panel,
+  .metric,
+  .card,
+  .source-card,
+  .score-card,
+  .step,
+  .output-card,
+  .note-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    background: var(--paper);
+    box-shadow: var(--shadow);
+  }
+
+  .hero-copy {
+    padding: 34px;
+  }
+
+  .eyebrow {
+    margin: 0 0 14px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-weight: 700;
+    line-height: 1.04;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 5vw, 5rem);
+    max-width: 11ch;
+  }
+
+  .lede {
+    margin: 20px 0 0;
+    max-width: 58ch;
+    color: var(--muted);
+    font-size: 1.03rem;
+    line-height: 1.75;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .hero-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .metric {
+    padding: 18px;
+    border-radius: var(--radius-lg);
+  }
+
+  .metric span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .metric strong {
+    display: block;
+    margin-top: 9px;
+    font-size: 1.15rem;
+  }
+
+  .panel-stack {
+    display: grid;
+    gap: 16px;
+  }
+
+  .panel {
+    padding: 26px;
+  }
+
+  .panel-kicker {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .live-title {
+    margin-top: 16px;
+    font-size: clamp(1.8rem, 2vw, 2.35rem);
+  }
+
+  .panel-copy,
+  .section-header p,
+  .card p,
+  .source-card p,
+  .output-card p,
+  .note-card p,
+  .step p {
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .panel-copy {
+    margin: 14px 0 0;
+  }
+
+  .panel-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .inline-links a {
+    color: var(--accent);
+  }
+
+  .accent-panel {
+    background:
+      radial-gradient(circle at top right, rgba(199, 104, 60, 0.14), transparent 36%),
+      linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(255, 246, 236, 0.94));
+  }
+
+  .price-row {
+    display: flex;
+    align-items: end;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .price-row strong {
+    font-size: clamp(2.6rem, 4vw, 4.2rem);
+    line-height: 0.92;
+  }
+
+  .price-row span {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .mini-list {
+    margin: 18px 0 0;
+    padding-left: 18px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .content-section {
+    padding-top: 74px;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 22px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2.2rem, 3vw, 3.3rem);
+  }
+
+  .section-header p {
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  .card-grid,
+  .source-grid,
+  .output-grid,
+  .note-grid {
+    display: grid;
+    gap: 16px;
+  }
+
+  .card-grid,
+  .output-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .source-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .card,
+  .source-card,
+  .score-card,
+  .output-card,
+  .note-card,
+  .step {
+    padding: 22px;
+  }
+
+  .card h3,
+  .source-card h3,
+  .output-card h3,
+  .note-card h3,
+  .step h3 {
+    font-size: 1.35rem;
+  }
+
+  .card p,
+  .source-card p,
+  .output-card p,
+  .note-card p,
+  .step p {
+    margin: 10px 0 0;
+  }
+
+  .source-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .source-card h3 {
+    margin-top: 14px;
+  }
+
+  .score-grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .score-card {
+    padding: 20px;
+  }
+
+  .score-row {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr) 68px;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .score-name {
+    font-weight: 800;
+  }
+
+  .score-subtitle {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .bar {
+    position: relative;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(95, 107, 101, 0.14);
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #0f766e, #1e8b86 70%, #d88a57 100%);
+  }
+
+  .score-value {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  .step h3 {
+    margin-top: 14px;
+  }
+
+  .output-card.highlight {
+    background:
+      radial-gradient(circle at top right, rgba(15, 118, 110, 0.12), transparent 34%),
+      linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 249, 240, 0.95));
+  }
+
+  .note-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .note-card pre {
+    margin: 16px 0 0;
+    padding: 16px;
+    overflow: auto;
+    border-radius: var(--radius-md);
+    background: #1f2b27;
+    color: #f6f5f2;
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 44px;
+    padding: 18px 0 10px;
+    border-top: 1px solid rgba(118, 103, 80, 0.14);
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .footer-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: reveal 0.8s cubic-bezier(0.2, 0.75, 0.25, 1) forwards;
+  }
+
+  [data-reveal="2"] { animation-delay: 0.08s; }
+  [data-reveal="3"] { animation-delay: 0.16s; }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 1040px) {
+    .hero,
+    .section-header,
+    .card-grid,
+    .source-grid,
+    .output-grid,
+    .pipeline,
+    .note-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header {
+      align-items: start;
+    }
+
+    .score-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .page {
+      width: min(100%, calc(100% - 20px));
+    }
+
+    .topbar {
+      border-radius: 24px;
+      padding: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .nav-actions {
+      width: 100%;
+      justify-content: stretch;
+    }
+
+    .button {
+      flex: 1 1 0;
+    }
+
+    .hero-copy,
+    .panel,
+    .card,
+    .source-card,
+    .score-card,
+    .step,
+    .output-card,
+    .note-card {
+      padding: 22px;
+    }
+
+    .hero-strip {
+      grid-template-columns: 1fr;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+    }
+
+    .footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <h1>📰 Daily AI Digest</h1>
-    <p>Curated AI/ML signals — zero LLMs, pure algorithmic curation</p>
-    <a class="rss-link" href="feed.xml">📡 RSS Feed</a>
+<div class="page">
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">DS</span>
+      <span class="brand-copy">
+        <strong>DOOM_SCROLL</strong>
+        <span>Daily AI and ML signal desk</span>
+      </span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#sources">Sources</a>
+      <a href="#ranking">Ranking</a>
+      <a href="#operations">Operations</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="button button-secondary" href="archive.html">Archive</a>
+      <a class="button button-tertiary" href="feed.xml">RSS</a>
+    </div>
   </header>
 
-  <ul class="digest-list">
-    
-    <li class="digest-entry">
-      <a href="2026-04-03.html">Daily AI Digest — 2026-04-03</a>
-      <div class="meta">2026-04-03 · 20 items from 5 sources</div>
-    </li>
-    
-  </ul>
+  <main>
+    <section class="hero" id="overview">
+      <article class="hero-copy" data-reveal="1">
+        <p class="eyebrow">GitHub Pages wiki</p>
+        <h1>The zero-cost intelligence desk for research, agents, and ML systems.</h1>
+        <p class="lede">
+          DOOM_SCROLL pulls fresh AI and machine learning signals from public sources,
+          ranks them with transparent heuristics, and publishes a clean daily briefing that
+          looks professional without requiring paid infrastructure.
+        </p>
 
-  <footer>
-    <p>Generated by <a href="https://github.com/">DOOM_SCROLL</a></p>
+        <div class="cta-row">
+          <a class="button button-primary" data-latest-link href="archive.html">Open latest digest</a>
+          <a class="button button-secondary" href="archive.html">Browse archive</a>
+          <a class="button button-tertiary" href="feed.xml">Follow RSS</a>
+        </div>
+
+        <div class="hero-strip">
+          <div class="metric">
+            <span>Coverage</span>
+            <strong>6 public sources</strong>
+          </div>
+          <div class="metric">
+            <span>Scoring model</span>
+            <strong>5 weighted signals</strong>
+          </div>
+          <div class="metric">
+            <span>Hosting</span>
+            <strong>$0 on GitHub</strong>
+          </div>
+        </div>
+      </article>
+
+      <div class="panel-stack">
+        <article class="panel" data-reveal="2">
+          <div class="panel-kicker">Latest issue</div>
+          <h2 class="live-title" data-latest-title>Daily AI Digest</h2>
+          <p class="panel-copy">
+            The homepage stays stable while the issue pages, archive, and RSS feed update automatically after each run.
+          </p>
+          <div class="panel-meta">
+            <span data-latest-date>Waiting for site metadata</span>
+            <span data-latest-stats>Archive updates after each publish</span>
+          </div>
+          <div class="inline-links">
+            <a data-latest-link href="archive.html">Read issue</a>
+            <a href="archive.html">See full archive</a>
+          </div>
+        </article>
+
+        <article class="panel accent-panel" data-reveal="3">
+          <div class="panel-kicker">Free by design</div>
+          <div class="price-row">
+            <strong>$0</strong>
+            <span>monthly platform spend</span>
+          </div>
+          <ul class="mini-list">
+            <li>GitHub Actions runs the daily and weekly cron jobs.</li>
+            <li>GitHub Pages serves the archive and RSS feed.</li>
+            <li>Plain JSON outputs stay versioned in the repository.</li>
+            <li>Email delivery is optional and only needs Gmail app secrets.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">What this page is</p>
+          <h2>An editorial front door for the whole pipeline.</h2>
+        </div>
+        <p>
+          This root page is the permanent project guide: what DOOM_SCROLL monitors,
+          how ranking works, what outputs are published, and how the whole stack stays tidy,
+          reliable, and free to run.
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Daily briefing</h3>
+          <p>A ranked issue with deep dives, quick signals, and clean static HTML that is easy to read on mobile or desktop.</p>
+        </article>
+
+        <article class="card">
+          <h3>Machine-readable outputs</h3>
+          <p>The same run emits Markdown, JSON, RSS, and run statistics so dashboards and automation can reuse the work.</p>
+        </article>
+
+        <article class="card">
+          <h3>Transparent logic</h3>
+          <p>The ranking is heuristic-first: recency, engagement, cross-source confirmation, keyword relevance, and novelty.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="sources">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Signal coverage</p>
+          <h2>Six inputs, one digest.</h2>
+        </div>
+        <p>
+          Each source plays a different role: frontier papers, practitioner attention,
+          code momentum, and long-form essays. The value comes from combining them, not from any single feed.
+        </p>
+      </div>
+
+      <div class="source-grid">
+        <article class="source-card">
+          <span class="source-label">arXiv</span>
+          <h3>Fresh research</h3>
+          <p>Category queries across AI, ML, robotics, multi-agent systems, vision, language, and statistics.</p>
+        </article>
+
+        <article class="source-card">
+          <span class="source-label">Hacker News</span>
+          <h3>Operator attention</h3>
+          <p>Best and latest stories provide live signals about what builders are debating, sharing, and testing.</p>
+        </article>
+
+        <article class="source-card">
+          <span class="source-label">RSS</span>
+          <h3>Curated essays</h3>
+          <p>Selected feeds add commentary and applied engineering perspectives that raw paper feeds usually miss.</p>
+        </article>
+
+        <article class="source-card">
+          <span class="source-label">Hugging Face</span>
+          <h3>Paper momentum</h3>
+          <p>Surfaced papers get enriched and matched against arXiv so paper attention is not trapped in one ecosystem.</p>
+        </article>
+
+        <article class="source-card">
+          <span class="source-label">GitHub Trending</span>
+          <h3>Code velocity</h3>
+          <p>Trending repositories add implementation-level signals, especially for agents, diffusion, RAG, and infrastructure.</p>
+        </article>
+
+        <article class="source-card">
+          <span class="source-label">Papers With Code</span>
+          <h3>Research to code</h3>
+          <p>When the scraper lands usable results, this source helps connect papers to executable code and benchmarks.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="ranking">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Ranking model</p>
+          <h2>Weighted, legible, and easy to tune.</h2>
+        </div>
+        <p>
+          The ranking model is not magic. It is a clear blend of timeliness, traction, confirmation,
+          domain relevance, and novelty. That keeps the output inspectable and cheap to maintain.
+        </p>
+      </div>
+
+      <div class="score-grid">
+        <article class="score-card">
+          <div class="score-row">
+            <div>
+              <span class="score-name">Recency</span>
+              <span class="score-subtitle">Inverse age decay keeps the front page current.</span>
+            </div>
+            <div class="bar"><span class="bar-fill" style="width: 25%;"></span></div>
+            <div class="score-value">25%</div>
+          </div>
+        </article>
+
+        <article class="score-card">
+          <div class="score-row">
+            <div>
+              <span class="score-name">Engagement</span>
+              <span class="score-subtitle">HN activity and GitHub stars capture real-world attention.</span>
+            </div>
+            <div class="bar"><span class="bar-fill" style="width: 30%;"></span></div>
+            <div class="score-value">30%</div>
+          </div>
+        </article>
+
+        <article class="score-card">
+          <div class="score-row">
+            <div>
+              <span class="score-name">Cross-source confidence</span>
+              <span class="score-subtitle">Items appearing in more than one source get promoted.</span>
+            </div>
+            <div class="bar"><span class="bar-fill" style="width: 25%;"></span></div>
+            <div class="score-value">25%</div>
+          </div>
+        </article>
+
+        <article class="score-card">
+          <div class="score-row">
+            <div>
+              <span class="score-name">Keyword fit</span>
+              <span class="score-subtitle">TF-IDF style weighting favors the topics you actually care about.</span>
+            </div>
+            <div class="bar"><span class="bar-fill" style="width: 15%;"></span></div>
+            <div class="score-value">15%</div>
+          </div>
+        </article>
+
+        <article class="score-card">
+          <div class="score-row">
+            <div>
+              <span class="score-name">Novelty</span>
+              <span class="score-subtitle">Rolling history avoids surfacing the same signal day after day.</span>
+            </div>
+            <div class="bar"><span class="bar-fill" style="width: 5%;"></span></div>
+            <div class="score-value">5%</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Publishing loop</p>
+          <h2>From ingestion to a static page in one pass.</h2>
+        </div>
+        <p>
+          The system pulls, filters, enriches, scores, explains, renders, publishes, and stores history in one automated run.
+          The archive grows while the root page stays polished and stable.
+        </p>
+      </div>
+
+      <div class="pipeline">
+        <article class="step">
+          <span class="step-number">01</span>
+          <h3>Ingest</h3>
+          <p>Pull fresh items from arXiv, RSS, Hacker News, Hugging Face, GitHub Trending, and Papers With Code.</p>
+        </article>
+
+        <article class="step">
+          <span class="step-number">02</span>
+          <h3>Filter</h3>
+          <p>Apply source-specific time windows, quality thresholds, and novelty rules before ranking starts.</p>
+        </article>
+
+        <article class="step">
+          <span class="step-number">03</span>
+          <h3>Enrich</h3>
+          <p>Match HN discussions, merge cross-source duplicates, and add metadata that raises confidence.</p>
+        </article>
+
+        <article class="step">
+          <span class="step-number">04</span>
+          <h3>Render</h3>
+          <p>Publish HTML, Markdown, JSON, RSS, and a GitHub Pages archive that remains fully static.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="operations">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Operations</p>
+          <h2>Professional output without paid infrastructure.</h2>
+        </div>
+        <p>
+          The project is intentionally boring in the best way: one Python runtime, one static site, scheduled workflows,
+          and optional email delivery. That keeps the maintenance burden low and the appearance high-end.
+        </p>
+      </div>
+
+      <div class="output-grid">
+        <article class="output-card highlight">
+          <h3>Static site</h3>
+          <p>The homepage is the permanent guide. New digests publish as dated HTML pages, while the archive and site metadata update automatically.</p>
+        </article>
+
+        <article class="output-card">
+          <h3>RSS and HTML</h3>
+          <p>Readers can subscribe by feed or browse individual issues directly. No database or app server is required.</p>
+        </article>
+
+        <article class="output-card">
+          <h3>JSON and history</h3>
+          <p>The pipeline stores structured outputs and rolling history, which keeps scoring and dashboards grounded in prior runs.</p>
+        </article>
+      </div>
+
+      <div class="note-grid">
+        <article class="note-card">
+          <h3>Run locally</h3>
+          <p>Use the existing uv-based workflow to generate the digest and refresh the static site.</p>
+          <pre><code>uv sync --frozen
+uv run python main.py</code></pre>
+        </article>
+
+        <article class="note-card">
+          <h3>Automate for free</h3>
+          <p>GitHub Actions handles the daily schedule, commits outputs, and keeps Pages updated from the docs directory.</p>
+          <pre><code>schedule:
+  - cron: "0 7 * * *"
+
+optional email secrets:
+  GMAIL_ADDRESS
+  GMAIL_APP_PASSWORD
+  DIGEST_TO_EMAIL</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span data-archive-count>Archive metadata loads from site-data.json.</span>
+    <div class="footer-links">
+      <a href="archive.html">Browse archive</a>
+      <a href="feed.xml">Open RSS</a>
+    </div>
   </footer>
 </div>
+
+<script type="module">
+  try {
+    const response = await fetch("site-data.json", { cache: "no-store" });
+    if (response.ok) {
+      const data = await response.json();
+      if (data && data.latest) {
+        const latest = data.latest;
+        const latestHref = latest.filename || "archive.html";
+        const latestTitle = latest.title || "Daily AI Digest";
+        const latestDate = latest.date || "Latest issue";
+        const latestCount = typeof latest.count === "number" ? latest.count : null;
+        const latestSources = typeof latest.sources === "number" ? latest.sources : null;
+        const archiveSize = Array.isArray(data.archive) ? data.archive.length : null;
+
+        document.querySelectorAll("[data-latest-link]").forEach((node) => {
+          node.setAttribute("href", latestHref);
+        });
+
+        const titleNode = document.querySelector("[data-latest-title]");
+        if (titleNode) {
+          titleNode.textContent = latestTitle;
+        }
+
+        const dateNode = document.querySelector("[data-latest-date]");
+        if (dateNode) {
+          dateNode.textContent = latestDate;
+        }
+
+        const statsNode = document.querySelector("[data-latest-stats]");
+        if (statsNode && latestCount !== null && latestSources !== null) {
+          statsNode.textContent = latestCount + " items across " + latestSources + " sources";
+        }
+
+        const archiveNode = document.querySelector("[data-archive-count]");
+        if (archiveNode && archiveSize !== null) {
+          archiveNode.textContent = "Archive currently contains " + archiveSize + " published issue" + (archiveSize === 1 ? "" : "s") + ".";
+        }
+      }
+    }
+  } catch (error) {
+    console.debug("site metadata unavailable", error);
+  }
+</script>
 </body>
 </html>

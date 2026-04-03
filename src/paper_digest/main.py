@@ -338,7 +338,7 @@ def run(config_path: str = "config.yaml", keywords: List[str] | None = None) -> 
 
     # ---- SITE + RSS ----
     section("SITE + RSS")
-    site_dir = build_site(items_top, html, site_dir="docs")
+    site_dir = build_site(items_top, site_dir="docs", deep_dive_count=deep_dive_count)
     rss_xml = generate_rss(items_top)
     (site_dir / "feed.xml").write_text(rss_xml, encoding="utf-8")
     logger.info(f"[green]done[/green] site={site_dir} feed.xml")
