@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<style>
+  body { margin: 0; padding: 0; background: #f4f4f7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #2d3748; line-height: 1.6; }
+  .wrapper { max-width: 640px; margin: 0 auto; background: #ffffff; }
+  .header { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: #ffffff; padding: 32px 24px; text-align: center; }
+  .header h1 { margin: 0 0 8px; font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+  .header .date { font-size: 14px; color: #c7d2fe; margin: 4px 0 0; }
+  .header .stats { font-size: 13px; color: #a5b4fc; margin: 0; }
+  .section-bar { background: #6366f1; color: #fff; padding: 10px 24px; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; }
+  .section-bar.quick { background: #0ea5e9; }
+  .topic-label { padding: 6px 24px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #6366f1; background: #f0f0ff; border-bottom: 1px solid #e5e7eb; }
+  .item { padding: 20px 24px; border-bottom: 1px solid #f0f0f0; }
+  .item:last-child { border-bottom: none; }
+  .item-title a { color: #1a1a2e; text-decoration: none; font-size: 16px; font-weight: 600; line-height: 1.3; }
+  .item-title a:hover { color: #6366f1; }
+  .item-meta { font-size: 12px; color: #6b7280; margin: 4px 0 0; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-right: 4px; }
+  .badge-hn { background: #ff6600; color: #fff; }
+  .badge-arxiv { background: #b31b1b; color: #fff; }
+  .badge-hf { background: #ffd21e; color: #1a1a2e; }
+  .badge-github { background: #24292f; color: #fff; }
+  .badge-pwc { background: #21cbf3; color: #1a1a2e; }
+  .badge-rss { background: #f59e0b; color: #1a1a2e; }
+  .wim { font-size: 13px; color: #4338ca; background: #eef2ff; padding: 6px 10px; border-radius: 6px; margin: 8px 0 4px; border-left: 3px solid #6366f1; }
+  .summary { font-size: 14px; color: #374151; margin: 8px 0 0; }
+  .code-link { font-size: 12px; margin-top: 4px; }
+  .code-link a { color: #6366f1; text-decoration: none; }
+  .qs-item { padding: 10px 24px; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+  .qs-item a { color: #1a1a2e; text-decoration: none; font-weight: 500; }
+  .qs-item a:hover { color: #6366f1; }
+  .qs-meta { font-size: 11px; color: #9ca3af; margin-left: 4px; }
+  .footer { background: #f9fafb; padding: 24px; text-align: center; font-size: 12px; color: #9ca3af; border-top: 1px solid #e5e7eb; }
+  .footer a { color: #6366f1; text-decoration: none; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #111827; }
+    .wrapper { background: #1f2937; }
+    .item-title a { color: #f3f4f6; }
+    .item-meta { color: #9ca3af; }
+    .summary { color: #d1d5db; }
+    .wim { background: #1e1b4b; color: #a5b4fc; border-color: #4338ca; }
+    .qs-item a { color: #f3f4f6; }
+    .footer { background: #111827; border-color: #374151; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>📰 Daily AI Digest</h1>
+    <div class="date">{{ date_str }}</div>
+    <div class="stats">{{ total_items }} curated signals from {{ source_count }} sources</div>
+  </div>
+
+  <!-- Deep Dives -->
+  <div class="section-bar">🔬 Deep Dives</div>
+
+  {% for topic, group in deep_dive_topics.items() %}
+  {% if deep_dive_topics | length > 1 %}
+  <div class="topic-label">{{ topic }}</div>
+  {% endif %}
+
+  {% for it in group %}
+  <div class="item">
+    <div class="item-title">
+      <span class="badge badge-{{ it.source }}">{{ source_badges[it.source] }}</span>
+      <a href="{{ it.url }}">{{ it.display_title }}</a>
+    </div>
+    <div class="item-meta">{{ it.meta_line }}</div>
+    {% if it.why_it_matters %}
+    <div class="wim">{{ it.why_it_matters }}</div>
+    {% endif %}
+    {% if it.display_summary %}
+    <div class="summary">{{ it.display_summary }}</div>
+    {% endif %}
+    {% if it.code_url and it.source != 'github' %}
+    <div class="code-link">💻 <a href="{{ it.code_url }}">View code →</a></div>
+    {% endif %}
+  </div>
+  {% endfor %}
+  {% endfor %}
+
+  <!-- Quick Signals -->
+  {% if quick_signals %}
+  <div class="section-bar quick">⚡ Quick Signals</div>
+
+  {% for topic, group in quick_signal_topics.items() %}
+  {% if quick_signal_topics | length > 1 %}
+  <div class="topic-label">{{ topic }}</div>
+  {% endif %}
+
+  {% for it in group %}
+  <div class="qs-item">
+    <span class="badge badge-{{ it.source }}">{{ source_badges[it.source] }}</span>
+    <a href="{{ it.url }}">{{ it.display_title }}</a>
+    <span class="qs-meta">{{ it.qs_meta }}</span>
+  </div>
+  {% endfor %}
+  {% endfor %}
+  {% endif %}
+
+  <!-- Footer -->
+  <div class="footer">
+    {% if archive_url %}
+    <p><a href="{{ archive_url }}">Browse the archive →</a></p>
+    {% endif %}
+    <p>Curated signals from arXiv, Hacker News, Hugging Face, GitHub, Papers With Code &amp; RSS</p>
+    <p>Generated by <strong>DOOM_SCROLL</strong> · No AI summaries, no hallucinations</p>
+  </div>
+
+</div>
+</body>
+</html>

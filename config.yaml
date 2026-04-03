@@ -5,6 +5,9 @@ arxiv:
     - "cat:cs.MA" # Multiagent systems
     - "cat:cs.SI" # social networks
     - "cat:stat.ML" # Machine learning
+    - "cat:cs.CL" # Computation and Language (NLP)
+    - "cat:cs.CV" # Computer Vision
+    - "cat:cs.LG" # Machine Learning
   max_results_per_query: 20
   sort_by: "submittedDate"   # submittedDate | lastUpdatedDate | relevance
   sort_order: "descending"   # ascending | descending
@@ -24,19 +27,52 @@ hackernews:
   latest_n: 20
   best_n: 20
 
+huggingface:
+  enabled: true
+  daily_n: 30
+
+github_trending:
+  enabled: true
+  limit: 30
+  languages:
+    - "python"
+    - "jupyter-notebook"
+  keywords:
+    - llm
+    - transformer
+    - agent
+    - diffusion
+    - neural
+    - machine-learning
+    - deep-learning
+    - gpt
+    - rag
+    - embedding
+
+papers_with_code:
+  enabled: true
+  limit: 20
+
 output:
   digest_md: "outputs/digest.md"
   digest_json: "outputs/digest.json"
-  arxiv_quota: 10
+  history_json: "outputs/history.json"
+  run_stats_json: "outputs/run_stats.json"
   top_k: 20
-  hn_quota: 5
-  #last_hours: 24
+  arxiv_quota: 7
+  hn_quota: 4
+  hf_quota: 3
+  github_quota: 3
+  pwc_quota: 2
+  rss_quota: 1
+  deep_dive_count: 5
   last_hours_rss: 24
   last_hours_hn: 24
   last_hours_arxiv: 168 # 7 days
+  last_hours_hf: 168    # 7 days
+  last_hours_github: 24
+  last_hours_pwc: 168   # 7 days
   send_email: true
-  last_hours_hf: 168   # 7 days
-  hf_quota: 3
 
 quality:
   hn_min_points: 30
@@ -45,4 +81,14 @@ quality:
   rss_require_hn: false
   rss_hn_min_points: 10
   rss_hn_min_comments: 0
+
+scoring:
+  w_recency: 0.25
+  w_engagement: 0.30
+  w_cross_source: 0.25
+  w_keywords: 0.15
+  w_novelty: 0.05
+
+history:
+  rolling_days: 14
 

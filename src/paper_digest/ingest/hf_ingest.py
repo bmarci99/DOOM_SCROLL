@@ -20,29 +20,43 @@ def fetch_hf_papers(limit: int = 30) -> List[Item]:
     soup = BeautifulSoup(r.text, "html.parser")
 
     out: List[Item] = []
-    seen = set()
     now = datetime.now(timezone.utc)
 
+    # Collect all link texts per arxiv ID — pick the longest as the title
+    titles: dict[str, str] = {}
+    upvotes: dict[str, int] = {}
     for a in soup.find_all("a", href=True):
         m = _ARXIV_ID_RE.match(a["href"])
         if not m:
             continue
         arxiv_id = m.group(1)
-        if arxiv_id in seen:
-            continue
-        seen.add(arxiv_id)
+        text = a.get_text(strip=True)
+        if text and len(text) > len(titles.get(arxiv_id, "")):
+            # Skip short numeric strings (upvote counts) — keep actual titles
+            if not text.isdigit() and not text.startswith("·"):
+                titles[arxiv_id] = text
+        # Capture upvote count (short numeric link text)
+        if text.isdigit():
+            upvotes[arxiv_id] = max(upvotes.get(arxiv_id, 0), int(text))
+
+    out: List[Item] = []
+    for arxiv_id in titles:
+        if len(out) >= limit:
+            break
+        title_text = titles[arxiv_id]
+        if len(title_text) < 5:
+            title_text = f"HF Papers: {arxiv_id}"
 
         out.append(
             Item(
                 id=f"hf:{arxiv_id}",
                 source="hf",
-                title=f"HF Papers: {arxiv_id}",  # will be replaced by arXiv title in enrichment
+                title=title_text,
                 url=f"https://huggingface.co/papers/{arxiv_id}",
-                published=now,  # HF page doesn't reliably expose timestamps; set now
+                published=now,
                 tags=["huggingface"],
+                hn_points=upvotes.get(arxiv_id, 0),
             )
         )
-        if len(out) >= limit:
-            break
 
     return out

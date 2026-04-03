@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "skills": {
+    "analyzing-research-papers": {
+      "source": "seabbs/skills",
+      "sourceType": "github",
+      "computedHash": "a521e31b4ba93aa578133ac36d94fcb127064bb1bcd8481f5fe78ab279cae977"
+    },
+    "document-processing": {
+      "source": "eyadsibai/ltk",
+      "sourceType": "github",
+      "computedHash": "550a8647fa14b7d2d065fa92c73058a218c187f7e72d81bd82cdae2796a74f76"
+    },
+    "web-scraping": {
+      "source": "jamditis/claude-skills-journalism",
+      "sourceType": "github",
+      "computedHash": "32fbc852a134b1cf1ef62b115a5316846f792413cc0a2ddbaa5f43d4256ceb6d"
+    }
+  }
+}

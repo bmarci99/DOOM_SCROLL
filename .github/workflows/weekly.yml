@@ -1,20 +1,19 @@
-name: Daily Digest
+name: Weekly Digest
 
 on:
   schedule:
-    - cron: "0 7 * * *"
+    - cron: "0 8 * * 0"   # Sundays at 8 AM UTC
   workflow_dispatch: {}
 
 permissions:
   contents: write
-  pages: write
 
 concurrency:
-  group: daily-digest
+  group: weekly-digest
   cancel-in-progress: true
 
 jobs:
-  run-digest:
+  run-weekly:
     runs-on: ubuntu-latest
 
     steps:
@@ -41,15 +40,15 @@ jobs:
       - name: Install dependencies (locked)
         run: uv sync --frozen
 
-      - name: Run digest
+      - name: Generate weekly digest
         env:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           DIGEST_TO_EMAIL: ${{ secrets.DIGEST_TO_EMAIL }}
         run: |
-          uv run python main.py
+          uv run python -c "from src.paper_digest.render.weekly import generate_weekly; generate_weekly()"
 
-      - name: Commit digest outputs
+      - name: Commit weekly outputs
         run: |
           git config user.name "digest-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -61,5 +60,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update digest $(date -u +%Y-%m-%d) [skip ci]"
+          git commit -m "Weekly digest $(date -u +%Y-%m-%d) [skip ci]"
           git push
