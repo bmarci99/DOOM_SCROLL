@@ -140,12 +140,15 @@ def run(config_path: str = "config.yaml", keywords: List[str] | None = None) -> 
     items = []
 
     if arxiv_cfg.get("queries"):
-        items += fetch_arxiv_items(
-            queries=arxiv_cfg["queries"],
-            max_results_per_query=int(arxiv_cfg.get("max_results_per_query", 20)),
-            sort_by=str(arxiv_cfg.get("sort_by", "submittedDate")),
-            sort_order=str(arxiv_cfg.get("sort_order", "descending")),
-        )
+        try:
+            items += fetch_arxiv_items(
+                queries=arxiv_cfg["queries"],
+                max_results_per_query=int(arxiv_cfg.get("max_results_per_query", 20)),
+                sort_by=str(arxiv_cfg.get("sort_by", "submittedDate")),
+                sort_order=str(arxiv_cfg.get("sort_order", "descending")),
+            )
+        except Exception as exc:
+            logger.warning(f"arXiv ingest failed; continuing without arXiv source: {exc}")
 
     if rss_cfg.get("feeds"):
         items += fetch_rss_items(
