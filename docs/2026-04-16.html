@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily AI Digest — 2026-04-16</title>
+<style>
+  body { margin: 0; padding: 0; background: #f4f4f7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #2d3748; line-height: 1.6; }
+  .wrapper { max-width: 640px; margin: 0 auto; background: #ffffff; }
+  .header { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: #ffffff; padding: 32px 24px; text-align: center; }
+  .header h1 { margin: 0 0 8px; font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+  .header .date { font-size: 14px; color: #c7d2fe; margin: 4px 0 0; }
+  .header .stats { font-size: 13px; color: #a5b4fc; margin: 0; }
+  .section-bar { background: #6366f1; color: #fff; padding: 10px 24px; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; }
+  .section-bar.quick { background: #0ea5e9; }
+  .topic-label { padding: 6px 24px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #6366f1; background: #f0f0ff; border-bottom: 1px solid #e5e7eb; }
+  .item { padding: 20px 24px; border-bottom: 1px solid #f0f0f0; }
+  .item:last-child { border-bottom: none; }
+  .item-title a { color: #1a1a2e; text-decoration: none; font-size: 16px; font-weight: 600; line-height: 1.3; }
+  .item-title a:hover { color: #6366f1; }
+  .item-meta { font-size: 12px; color: #6b7280; margin: 4px 0 0; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-right: 4px; }
+  .badge-hn { background: #ff6600; color: #fff; }
+  .badge-arxiv { background: #b31b1b; color: #fff; }
+  .badge-hf { background: #ffd21e; color: #1a1a2e; }
+  .badge-github { background: #24292f; color: #fff; }
+  .badge-pwc { background: #21cbf3; color: #1a1a2e; }
+  .badge-rss { background: #f59e0b; color: #1a1a2e; }
+  .wim { font-size: 13px; color: #4338ca; background: #eef2ff; padding: 6px 10px; border-radius: 6px; margin: 8px 0 4px; border-left: 3px solid #6366f1; }
+  .summary { font-size: 14px; color: #374151; margin: 8px 0 0; }
+  .code-link { font-size: 12px; margin-top: 4px; }
+  .code-link a { color: #6366f1; text-decoration: none; }
+  .qs-item { padding: 10px 24px; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+  .qs-item a { color: #1a1a2e; text-decoration: none; font-weight: 500; }
+  .qs-item a:hover { color: #6366f1; }
+  .qs-meta { font-size: 11px; color: #9ca3af; margin-left: 4px; }
+  .footer { background: #f9fafb; padding: 24px; text-align: center; font-size: 12px; color: #9ca3af; border-top: 1px solid #e5e7eb; }
+  .footer a { color: #6366f1; text-decoration: none; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #111827; }
+    .wrapper { background: #1f2937; }
+    .item-title a { color: #f3f4f6; }
+    .item-meta { color: #9ca3af; }
+    .summary { color: #d1d5db; }
+    .wim { background: #1e1b4b; color: #a5b4fc; border-color: #4338ca; }
+    .qs-item a { color: #f3f4f6; }
+    .footer { background: #111827; border-color: #374151; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>📰 Daily AI Digest</h1>
+    <div class="date">2026-04-16</div>
+    <div class="stats">20 curated signals from 5 sources</div>
+  </div>
+
+  <!-- Deep Dives -->
+  <div class="section-bar">🔬 Deep Dives</div>
+
+  
+  
+  <div class="topic-label">Agent / Dive</div>
+  
+
+  
+  <div class="item">
+    <div class="item-title">
+      <span class="badge badge-github">GitHub</span>
+      <a href="https://github.com/NousResearch/hermes-agent">NousResearch / hermes-agent</a>
+    </div>
+    <div class="item-meta">2026-04-16 · 4 pts · 3 comments · ⭐ 5.6k today</div>
+    
+    <div class="wim">⭐ 5.6k GitHub stars today · ⭐ 91.5k total stars</div>
+    
+    
+    <div class="summary">The agent that grows with you</div>
+    
+    
+  </div>
+  
+  <div class="item">
+    <div class="item-title">
+      <span class="badge badge-arxiv">arXiv</span>
+      <a href="http://arxiv.org/abs/2604.14113v1">UI-Zoomer: Uncertainty-Driven Adaptive Zoom-In for GUI Grounding</a>
+    </div>
+    <div class="item-meta">2026-04-15 · 8 pts · cs.CV · cs.AI · Fei Tang, Bofan Chen…</div>
+    
+    <div class="wim">📄 New in cs.CV, cs.AI</div>
+    
+    
+    <div class="summary">Test-time zoom-in methods improve localization by cropping and re-running inference at higher resolution, but apply cropping uniformly across all instances with fixed crop sizes, ignoring whether the model is actually uncertain on each case. We propose \textbf{UI-Zoomer}, a training-free adaptive zoom-in framework that treats both the trigger and scale of zoom-in as a prediction uncertainty quantification problem. A confidence-aware gate fuses spatial consensus among stochastic candidates with token-level generation confidence to selectively trigger zoom-in only when localization is uncertain.</div>
+    
+    
+  </div>
+  
+  <div class="item">
+    <div class="item-title">
+      <span class="badge badge-arxiv">arXiv</span>
+      <a href="http://arxiv.org/abs/2604.14142v1">From $P(y|x)$ to $P(y)$: Investigating Reinforcement Learning in Pre-train Space</a>
+    </div>
+    <div class="item-meta">2026-04-15 · 5 pts · cs.LG · cs.AI · Yuqiao Tan, Minzheng Wang…</div>
+    
+    <div class="wim">📄 New in cs.LG, cs.AI</div>
+    
+    
+    <div class="summary">While reinforcement learning with verifiable rewards (RLVR) significantly enhances LLM reasoning by optimizing the conditional distribution P(y|x), its potential is fundamentally bounded by the base model&#x27;s existing output distribution. In this paper, we introduce PreRL (Pre-train Space RL), which applies reward-driven online updates directly to P(y). Leveraging these insights, we propose Dual Space RL (DSRL), a Policy Reincarnation strategy that initializes models with NSR-PreRL to expand the reasoning horizon before transitioning to standard RL for fine-grained optimization.</div>
+    
+    
+  </div>
+  
+  <div class="item">
+    <div class="item-title">
+      <span class="badge badge-arxiv">arXiv</span>
+      <a href="http://arxiv.org/abs/2604.14144v1">SpatialEvo: Self-Evolving Spatial Intelligence via Deterministic Geometric Environments</a>
+    </div>
+    <div class="item-meta">2026-04-15 · 3 pts · cs.CV · cs.CL · Dinging Li, Yingxiu Zhao…</div>
+    
+    <div class="wim">📄 New in cs.CV, cs.CL</div>
+    
+    
+    <div class="summary">The self-evolving paradigm offers a promising path, but its reliance on model consensus to construct pseudo-labels causes training to reinforce rather than correct the model&#x27;s own geometric errors. Building on this insight, we present SpatialEvo, a self-evolving framework for 3D spatial reasoning, centered on the Deterministic Geometric Environment (DGE). The DGE formalizes 16 spatial reasoning task categories under explicit geometric validation rules and converts unannotated 3D scenes into zero-noise interactive oracles, replacing model consensus with objective physical feedback.</div>
+    
+    
+  </div>
+  
+  
+  
+  <div class="topic-label">Student / Entropy</div>
+  
+
+  
+  <div class="item">
+    <div class="item-title">
+      <span class="badge badge-arxiv">arXiv</span>
+      <a href="http://arxiv.org/abs/2604.14084v1">TIP: Token Importance in On-Policy Distillation</a>
+    </div>
+    <div class="item-meta">2026-04-15 · 7 pts · cs.LG · cs.AI · Yuanda Xu, Hejian Sang…</div>
+    
+    <div class="wim">📄 New in cs.LG, cs.AI</div>
+    
+    
+    <div class="summary">Our answer is that informative tokens come from two regions: positions with high student entropy, and positions with low student entropy plus high teacher--student divergence, where the student is overconfident and wrong. When we isolate low-entropy, high-divergence tokens, training on fewer than $10\%$ of all tokens nearly matches full-token baselines, showing that overconfident tokens carry dense corrective signal despite being nearly invisible to entropy-only rules. We organize these findings with TIP (Token Importance in on-Policy distillation), a two-axis taxonomy over student entropy and teacher--student divergence, and give a theoretical explanation for why entropy is useful yet structurally incomplete.</div>
+    
+    
+  </div>
+  
+  
+
+  <!-- Quick Signals -->
+  
+  <div class="section-bar quick">⚡ Quick Signals</div>
+
+  
+  
+  <div class="topic-label">Agent / Dive</div>
+  
+
+  
+  <div class="qs-item">
+    <span class="badge badge-github">GitHub</span>
+    <a href="https://github.com/microsoft/OmniParser">microsoft / OmniParser</a>
+    <span class="qs-meta">64 pts · ⭐14 · ⭐ 24.7k total stars</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-arxiv">arXiv</span>
+    <a href="http://arxiv.org/abs/2604.14048v1">Free Geometry: Refining 3D Reconstruction from Longer Versions of Itself</a>
+    <span class="qs-meta">3 pts · 📄 New in cs.CV</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-github">GitHub</span>
+    <a href="https://github.com/Lordog/dive-into-llms">Lordog / dive-into-llms</a>
+    <span class="qs-meta">⭐941 · ⭐ 941 GitHub stars today · ⭐ 30.1k total stars</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-github">GitHub</span>
+    <a href="https://github.com/AI4Finance-Foundation/FinGPT">AI4Finance-Foundation / FinGPT</a>
+    <span class="qs-meta">3 pts · ⭐78 · ⭐ 78 stars today on GitHub · ⭐ 19.5k total stars</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-github">GitHub</span>
+    <a href="https://github.com/agentscope-ai/agentscope">agentscope-ai / agentscope</a>
+    <span class="qs-meta">2 pts · ⭐106 · ⭐ 106 GitHub stars today · ⭐ 23.8k total stars</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-hf">HF</span>
+    <a href="https://huggingface.co/papers/2604.11548">SemaClaw: A Step Towards General-Purpose Personal AI Agents through Harness Engineering</a>
+    <span class="qs-meta">5 pts</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-hf">HF</span>
+    <a href="https://huggingface.co/papers/2604.10866">OccuBench: Evaluating AI Agents on Real-World Professional Tasks via Language World Models</a>
+    <span class="qs-meta">4 pts</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-rss">RSS</span>
+    <a href="https://medium.com/@ytrtrii/how-a-principal-product-designer-shipped-a-full-stack-finance-tracker-app-part-2-2c128a3b6e88?source=rss------ai-5">How a principal product designer shipped a full-stack finance tracker app — part 2</a>
+    <span class="qs-meta">🆕 New article</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-hf">HF</span>
+    <a href="https://huggingface.co/papers/2604.13201">InfiniteScienceGym: An Unbounded, Procedurally-Generated Benchmark for Scientific Analysis</a>
+    <span class="qs-meta">55 pts · 📄 Featured on Hugging Face Daily Papers</span>
+  </div>
+  
+  
+  
+  <div class="topic-label">Seedance / Video</div>
+  
+
+  
+  <div class="qs-item">
+    <span class="badge badge-arxiv">arXiv</span>
+    <a href="http://arxiv.org/abs/2604.14148v1">Seedance 2.0: Advancing Video Generation for World Complexity</a>
+    <span class="qs-meta">📄 New in cs.CV</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-arxiv">arXiv</span>
+    <a href="http://arxiv.org/abs/2604.14147v1">ROSE: Retrieval-Oriented Segmentation Enhancement</a>
+    <span class="qs-meta">📄 New in cs.CV</span>
+  </div>
+  
+  
+  
+  <div class="topic-label">Stop / Ollama</div>
+  
+
+  
+  <div class="qs-item">
+    <span class="badge badge-hn">HN</span>
+    <a href="https://sleepingrobots.com/dreams/stop-using-ollama/">Stop Using Ollama</a>
+    <span class="qs-meta">357 pts · 💬 Active HN discussion (80 comments)</span>
+  </div>
+  
+  
+  
+  <div class="topic-label">Darkbloom / Private</div>
+  
+
+  
+  <div class="qs-item">
+    <span class="badge badge-hn">HN</span>
+    <a href="https://darkbloom.dev/">Darkbloom – Private inference on idle Macs</a>
+    <span class="qs-meta">206 pts · 💬 Active HN discussion (98 comments)</span>
+  </div>
+  
+  
+  
+  <div class="topic-label">Google / Broke</div>
+  
+
+  
+  <div class="qs-item">
+    <span class="badge badge-hn">HN</span>
+    <a href="https://www.eff.org/deeplinks/2026/04/google-broke-its-promise-me-now-ice-has-my-data">Google broke its promise to me – now ICE has my data</a>
+    <span class="qs-meta">1.4k pts · 💬 Major HN discussion (596 comments) · 🔥 Trendi…</span>
+  </div>
+  
+  <div class="qs-item">
+    <span class="badge badge-hn">HN</span>
+    <a href="https://daedal.io/@thomzane/116410863009847575">FSF trying to contact Google about spammer sending 10k+ mails from Gmail account</a>
+    <span class="qs-meta">127 pts · 💬 Active HN discussion (61 comments)</span>
+  </div>
+  
+  
+  
+
+  <!-- Footer -->
+  <div class="footer">
+    
+    <p><a href="archive.html">Browse the archive →</a></p>
+    
+    <p>Curated signals from arXiv, Hacker News, Hugging Face, GitHub, Papers With Code &amp; RSS</p>
+    <p>Generated by <strong>DOOM_SCROLL</strong> · No AI summaries, no hallucinations</p>
+  </div>
+
+</div>
+</body>
+</html>
