@@ -1,14 +1,21 @@
 {
   "project_name": "DOOM_SCROLL",
-  "updated_at": "2026-04-21T08:28:47.086441+00:00",
+  "updated_at": "2026-04-22T08:26:20.766040+00:00",
   "latest": {
-    "filename": "2026-04-21.html",
-    "title": "Daily AI Digest — 2026-04-21",
-    "date": "2026-04-21",
+    "filename": "2026-04-22.html",
+    "title": "Daily AI Digest — 2026-04-22",
+    "date": "2026-04-22",
     "count": 20,
     "sources": 5
   },
   "archive": [
+    {
+      "filename": "2026-04-22.html",
+      "title": "Daily AI Digest — 2026-04-22",
+      "date": "2026-04-22",
+      "count": 20,
+      "sources": 5
+    },
     {
       "filename": "2026-04-21.html",
       "title": "Daily AI Digest — 2026-04-21",
